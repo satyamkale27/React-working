@@ -19,12 +19,16 @@ const content = [
 ];
 
 export default function App() {
+  //   Tabbed(); react does not it as a component insted sees a raw react element, that we do not want //
+  // so always use <Tabbed />
   return (
     <div>
       <Tabbed content={content} />
     </div>
   );
 }
+
+console.log(<DifferentContent test={20} />);
 
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
