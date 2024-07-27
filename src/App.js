@@ -69,10 +69,16 @@ function TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
 
+  console.log("RENDER");
+
   function handleInc() {
     setLikes(likes + 1);
   }
-
+  function handelUndo() {
+    setShowDetails(true);
+    setLikes(0);
+    console.log(likes); // state gets updated back after rerendring //
+  }
   return (
     <div className="tab-content">
       <h4>{item.summary}</h4>
@@ -91,7 +97,7 @@ function TabContent({ item }) {
       </div>
 
       <div className="tab-undo">
-        <button>Undo</button>
+        <button onClick={handelUndo}>Undo</button>
         <button>Undo in 2s</button>
       </div>
     </div>
