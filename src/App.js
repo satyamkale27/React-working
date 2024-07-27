@@ -75,9 +75,10 @@ function TabContent({ item }) {
     setLikes(likes + 1);
   }
   function handelUndo() {
+    // state Update Batching //
     setShowDetails(true);
     setLikes(0);
-    console.log(likes); // state gets updated back after rerendring //
+    console.log(likes); // state gets updated back after rerendring, so current likes does not get reflected immediately //
   }
   return (
     <div className="tab-content">
