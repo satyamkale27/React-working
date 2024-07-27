@@ -94,6 +94,10 @@ function TabContent({ item }) {
     setLikes(0);
     console.log(likes); // state gets updated back after rerendring, so current likes does not get reflected immediately //
   }
+  function handelUndoLater() {
+    setTimeout(handelUndo, 2000);
+  }
+
   return (
     <div className="tab-content">
       <h4>{item.summary}</h4>
@@ -113,7 +117,7 @@ function TabContent({ item }) {
 
       <div className="tab-undo">
         <button onClick={handelUndo}>Undo</button>
-        <button>Undo in 2s</button>
+        <button onClick={handelUndoLater}>Undo in 2s</button>
       </div>
     </div>
   );
