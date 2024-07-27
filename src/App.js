@@ -72,12 +72,12 @@ function TabContent({ item }) {
   console.log("RENDER");
 
   function handleInc() {
-    setLikes(likes + 1);
+    setLikes((likes) => likes + 1);
   }
 
   function handleTripleInc() {
     // it will not work //
-    // working //
+    // working of this function //
     // setLikes(likes + 1);  0 + 1 = 1 //
     // setLikes(likes + 1);  likes does not get update immediately(gets update after component rerendering) so 0 + 1 = 1 (stale state) //
     // setLikes(likes + 1);  same here stale state so 0 + 1 = 1 //
