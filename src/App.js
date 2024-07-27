@@ -78,10 +78,14 @@ function TabContent({ item }) {
   function handleTripleInc() {
     // it will not work //
     // working //
-    setLikes(likes + 1); // 0 + 1 = 1 //
-    setLikes(likes + 1); // likes does not get update immediately(gets update after component rerendering) so 0 + 1 = 1 (stale state) //
-    setLikes(likes + 1); // same here stale state so 0 + 1 = 1 //
+    // setLikes(likes + 1);  0 + 1 = 1 //
+    // setLikes(likes + 1);  likes does not get update immediately(gets update after component rerendering) so 0 + 1 = 1 (stale state) //
+    // setLikes(likes + 1);  same here stale state so 0 + 1 = 1 //
     // conclusion is likes will be get incremented by only 1 not by 3 //
+    // how to get it worked //
+    setLikes((curr) => curr + 1); // in call back we get latest updated state so it works //
+    setLikes((curr) => curr + 1);
+    setLikes((curr) => curr + 1);
   }
 
   function handelUndo() {
