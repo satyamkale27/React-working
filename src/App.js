@@ -74,6 +74,16 @@ function TabContent({ item }) {
   function handleInc() {
     setLikes(likes + 1);
   }
+
+  function handleTripleInc() {
+    // it will not work //
+    // working //
+    setLikes(likes + 1); // 0 + 1 = 1 //
+    setLikes(likes + 1); // likes does not get update immediately(gets update after component rerendering) so 0 + 1 = 1 (stale state) //
+    setLikes(likes + 1); // same here stale state so 0 + 1 = 1 //
+    // conclusion is likes will be get incremented by only 1 not by 3 //
+  }
+
   function handelUndo() {
     // state Update Batching //
     setShowDetails(true);
@@ -93,7 +103,7 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={handleTripleInc}>+++</button>
         </div>
       </div>
 
